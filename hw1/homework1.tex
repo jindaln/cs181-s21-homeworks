@@ -119,6 +119,11 @@ differently when defining similarity.
   in the training set, carefully consider for which points $x'$ you should be including
   the term $K(x_i,x')$ in the sum.
   
+$$ L(W) = {1 \over 2} \sum_{i=1}^N (y_i - f(x_i))^2$$
+$$ = {1 \over 2} \sum_{i=1}^N (y_i - {\sum_{n \neq i} K(x_n, x_i) y_n \over \sum_{n \neq i} K(x_n, x_i) } )^2$$
+
+$$ = {1 \over 2} \sum_{i=1}^N (y_i - {\sum_{n \neq i} e^{-((x_n - x_i)^T W(x_n - x_i)) y_n \over \sum_{n \neq i} e^{-((x_n - x_i)^T W(x_n - x_i))} )^2$$
+  
 \item In the following, let us assume that $D = 2$.  That means that
   $W$ has three parameters: $W_{11}$, $W_{22}$, and $W_{12} = W_{21}$.
   Expand the formula for the loss function to be a function of these
